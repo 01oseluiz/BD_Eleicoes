@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  idPerson: 
+  idParty: 
+  idCargo: 
+  idCity: 
+  candidatePhoto: 
+
+two:
+  idPerson: 
+  idParty: 
+  idCargo: 
+  idCity: 
+  candidatePhoto: 

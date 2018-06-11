@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Zone Candidates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Idcandidate</th>
+      <th>Idzone</th>
+      <th>Idround</th>
+      <th>Votetime</th>
+      <th>Voteismanual</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @zone_candidates.each do |zone_candidate| %>
+      <tr>
+        <td><%= zone_candidate.candidate.nome %></td>
+        <td><%= zone_candidate.zone.nome %></td>
+        <td><%= zone_candidate.round.idRound %></td>
+        <td><%= zone_candidate.voteTime %></td>
+        <td><%= zone_candidate.voteIsManual %></td>
+        <td><%= link_to 'Show', zone_candidate %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Zone Candidate', new_zone_candidates_path %>

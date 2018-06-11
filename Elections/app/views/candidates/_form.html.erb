@@ -1,0 +1,47 @@
+<%= form_with(model: candidate, local: true) do |form| %>
+    <% if candidate.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(candidate.errors.count, "error") %> prohibited this candidate from being saved:</h2>
+
+          <ul>
+            <% candidate.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :idCandidate %>
+      <%= form.text_field :idCandidate %>
+    </div>
+
+    <div class="field">
+      <%= form.label :idPerson %>
+      <%= collection_select(:candidate, :idPerson, Person.all, :idPerson, :nome, :prompt => true) %>
+    </div>
+
+    <div class="field">
+      <%= form.label :idParty %>
+      <%= collection_select(:candidate, :idParty, Party.all, :idParty, :partyAbbv, :prompt => true) %>
+    </div>
+
+    <div class="field">
+      <%= form.label :idCargo %>
+      <%= collection_select(:candidate, :idCargo, Cargo.all, :idCargo, :cargoName, :prompt => true) %>
+    </div>
+
+    <div class="field">
+      <%= form.label :idCity %>
+      <%= collection_select(:candidate, :idCity, City.all, :idCity, :cityName, :prompt => true) %>
+    </div>
+
+    <div class="field">
+      <%= form.label :candidatePhoto %>
+      <%= form.file_field :candidatePhoto %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+<% end %>

@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Idcandidate:</strong>
+  <%= @zone_candidate.candidate.nome %>
+</p>
+
+<p>
+  <strong>Idzone:</strong>
+  <%= @zone_candidate.zone.nome %>
+</p>
+
+<p>
+  <strong>Idround:</strong>
+  <%= @zone_candidate.round.idRound %>
+</p>
+
+<p>
+  <strong>Votetime:</strong>
+  <%= @zone_candidate.voteTime %>
+</p>
+
+<p>
+  <strong>Voteismanual:</strong>
+  <%= @zone_candidate.voteIsManual %>
+</p>
+
+<%= link_to 'Back', zone_candidates_path %>

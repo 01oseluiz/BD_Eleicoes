@@ -1,0 +1,42 @@
+<%= form_with(model: zone_candidate, local: true) do |form| %>
+  <% if zone_candidate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(zone_candidate.errors.count, "error") %> prohibited this zone_candidate from being saved:</h2>
+
+      <ul>
+      <% zone_candidate.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :idCandidate %>
+    <%= collection_select(:zone_candidate, :idCandidate, Candidate.all, :idCandidate, :nome, :prompt => true) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :idZone %>
+    <%= collection_select(:zone_candidate, :idZone, Zone.all, :idZone, :nome, :prompt => true) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :idRound %>
+    <%= collection_select(:zone_candidate, :idRound, Round.all, :idRound, :idRound, :prompt => true) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :voteTime %>
+    <%= form.datetime_select :voteTime %>
+  </div>
+
+  <div class="field">
+    <%= form.label :voteIsManual %>
+    <%= form.number_field :voteIsManual %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

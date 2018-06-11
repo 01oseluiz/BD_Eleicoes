@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  partyName: MyString
+  partyAbbv: MyString
+  idPerson: 
+  partyLogo: 
+
+two:
+  partyName: MyString
+  partyAbbv: MyString
+  idPerson: 
+  partyLogo: 

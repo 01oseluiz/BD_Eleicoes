@@ -1,0 +1,37 @@
+<%= form_with(model: elector, local: true) do |form| %>
+  <% if elector.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(elector.errors.count, "error") %> prohibited this elector from being saved:</h2>
+
+      <ul>
+      <% elector.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="field">
+      <%= form.label :idElector %>
+      <%= form.text_field :idElector %>
+    </div>
+
+  <div class="field">
+    <%= form.label :idPerson %>
+    <%= collection_select(:elector, :idPerson, Person.all, :idPerson, :nome, :prompt => true)%>
+  </div>
+
+  <div class="field">
+    <%= form.label :idZone %>
+    <%= collection_select(:elector, :idZone, Zone.all, :idZone, :nome, :prompt => true)%>
+  </div>
+
+  <div class="field">
+    <%= form.label :issueDate %>
+    <%= form.date_select :issueDate %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

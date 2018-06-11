@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Idperson:</strong>
+  <%= @candidate.person.nome  %>
+</p>
+
+<p>
+  <strong>Idparty:</strong>
+  <%= @candidate.party.partyAbbv %>
+</p>
+
+<p>
+  <strong>Idcargo:</strong>
+  <%= @candidate.cargo.cargoName %>
+</p>
+
+<p>
+  <strong>Idcity:</strong>
+  <%= @candidate.city.cityName %>
+</p>
+
+<p>
+  <strong>Candidatephoto:</strong><br/>
+  <%= image_tag url_for(action: :show_image, id: @candidate.idCandidate),height: '150px', width: '150px' %>
+</p>
+
+<%= link_to 'Edit', edit_candidate_path(@candidate) %> |
+<%= link_to 'Back', candidates_path %>

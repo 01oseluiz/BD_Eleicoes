@@ -1,0 +1,52 @@
+<%= form_with(model: @person, local: true) do |form| %>
+    <% if person.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(person.errors.count, "error") %> prohibited this person from being saved:</h2>
+
+          <ul>
+            <% person.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :idPerson %>
+      <%= form.text_field :idPerson %>
+    </div>
+
+    <div class="field">
+      <%= form.label :personFirstName %>
+      <%= form.text_field :personFirstName %>
+    </div>
+
+    <div class="field">
+      <%= form.label :personLastName %>
+      <%= form.text_field :personLastName %>
+    </div>
+
+    <div class="field">
+      <%= form.label :personBirthDate %>
+      <%= form.date_select :personBirthDate %>
+    </div>
+
+    <div class="field">
+      <%= form.label :personSex %>
+      <%= select(:person, :personSex, ['M','F']) %>
+    </div>
+
+    <div class="field">
+      <%= form.label :idAddress %>
+      <%= collection_select(:person, :idAddress, Address.all, :idAddress, :addressName, :prompt => true)%>
+    </div>
+
+    <div class="field">
+      <%= form.label :idEducation %>
+      <%= collection_select(:person, :idEducation, Education.all, :idEducation, :educationName, :prompt => true) %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+<% end %>

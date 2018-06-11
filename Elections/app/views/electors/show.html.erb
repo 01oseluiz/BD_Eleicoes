@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Idperson:</strong>
+  <%= @elector.person.nome %>
+</p>
+
+<p>
+  <strong>Idzone:</strong>
+  <%= @elector.zone.nome %>
+</p>
+
+<p>
+  <strong>Issuedate:</strong>
+  <%= @elector.issueDate %>
+</p>
+
+<%= link_to 'Edit', edit_elector_path(@elector) %> |
+<%= link_to 'Back', electors_path %>

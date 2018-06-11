@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  idCandidate: 
+  idZone: 
+  idRound: 
+  voteTime: 2018-06-10 19:14:06
+  voteIsManual: 1
+
+two:
+  idCandidate: 
+  idZone: 
+  idRound: 
+  voteTime: 2018-06-10 19:14:06
+  voteIsManual: 1

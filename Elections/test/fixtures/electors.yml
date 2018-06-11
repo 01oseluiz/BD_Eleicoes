@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  idPerson: 
+  idZone: 
+  issueDate: 2018-06-10
+
+two:
+  idPerson: 
+  idZone: 
+  issueDate: 2018-06-10

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Electors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Idperson</th>
+      <th>Idzone</th>
+      <th>Issuedate</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @electors.each do |elector| %>
+      <tr>
+        <td><%= elector.person.nome %></td>
+        <td><%= elector.zone.nome %></td>
+        <td><%= elector.issueDate %></td>
+        <td><%= link_to 'Show', elector %></td>
+        <td><%= link_to 'Edit', edit_elector_path(elector) %></td>
+        <td><%= link_to 'Destroy', elector, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Elector', new_elector_path %>
