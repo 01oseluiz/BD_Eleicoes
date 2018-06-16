@@ -1,3 +1,4 @@
+create view ParticipacaoRegional as
 select
 	(select count(electors.idElector) -- Total Eleitores
 	from (((((Elections.electors	inner join Elections.zones on electors.idZone = zones.idZone)
