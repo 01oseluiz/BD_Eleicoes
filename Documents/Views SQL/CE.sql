@@ -30,5 +30,5 @@ select
 									inner join Elections.states on cargo_states.idState = states.idState)
 		where cargoName = 'Deputado Estadual/Distrital'
 									) as NúmeroDeputadosEstaduais_Distritais,
-	states.stateName as NomeEstado from Elections.states -- Regiões
+	states.stateName as NomeEstado from Elections.states -- Estado
     group by NomeEstado;
