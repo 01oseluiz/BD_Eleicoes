@@ -1,0 +1,34 @@
+<%= form_with(local: true, url: 'votar') do |form| %>
+
+    <% estado = @elector.zone.address.city.state.idState %>
+    <% round = 1 %>
+
+    <div class="input-field">
+      <%= form.label :Titulo_de_Eleitor %>
+      <%= form.text_field :idElector, placeholder: 'Digite seu Titulo de Eleitor', value:@elector.idElector, readonly: '' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :Presidente %>
+      <%= collection_select(:voto, :Presidente, get_candidate(1,estado,round), :idCandidate, :candidateNumber, :prompt => true) %>
+    </div>
+    <div class="field">
+      <%= form.label :Governador %>
+      <%= collection_select(:voto, :Governador, get_candidate(2,estado,round), :idCandidate, :candidateNumber, :prompt => true) %>
+    </div>
+    <div class="field">
+      <%= form.label :Senador %>
+      <%= collection_select(:voto, :Senador, get_candidate(3,estado,round), :idCandidate, :candidateNumber, :prompt => true) %>
+    </div>
+    <div class="field">
+      <%= form.label :Deputado_Federal %>
+      <%= collection_select(:voto, :Deputado_Federal, get_candidate(4,estado,round), :idCandidate, :candidateNumber, :prompt => true) %>
+    </div>
+    <div class="field">
+      <%= form.label :Deputado_Estadual %>
+      <%= collection_select(:voto, :Deputado_Estadual, get_candidate(5,estado,round), :idCandidate, :candidateNumber, :prompt => true) %>
+    </div>
+    <div class="actions">
+      <%= form.submit 'Confirmar',class:'btn waves-effect waves-light right' %>
+    </div>
+<% end %>

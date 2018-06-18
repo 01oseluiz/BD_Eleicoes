@@ -4,7 +4,7 @@ class PartiesController < ApplicationController
   # GET /parties
   # GET /parties.json
   def index
-    @parties = Party.all
+    @parties = Party.limit(100)
   end
 
   # GET /parties/1
@@ -24,7 +24,12 @@ class PartiesController < ApplicationController
   # POST /parties
   # POST /parties.json
   def create
+
     @party = Party.new(party_params)
+
+    unless check_elector
+      return
+    end
 
     respond_to do |format|
       if @party.save
@@ -67,14 +72,31 @@ class PartiesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_party
-      @party = Party.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_party
+    @party = Party.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def party_params
-      img = {:partyLogo => params[:party][:partyLogo].read}
-      img.merge(params.require(:party).permit(:idParty, :partyName, :partyAbbv, :idPerson))
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def party_params
+    if params[:party][:partyLogo].nil? then
+      img = {partyLogo: ''}
+    else
+      img = {partyLogo: params[:party][:partyLogo].read}
     end
+    img.merge(params.require(:party).permit(:idParty, :partyName, :partyAbbv, :idPerson))
+  end
+
+  def check_elector
+    ret = true
+    if Elector.find_by(idPerson: params[:party][:idPerson]).nil?
+      @party.errors.add(:base, "Elector must exist for this CPF")
+      respond_to do |format|
+        format.html { render :new }
+        format.json { render json: @party.errors, status: :unprocessable_entity }
+      end
+      ret = false
+    end
+    ret
+  end
 end

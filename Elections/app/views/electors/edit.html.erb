@@ -1,6 +1,8 @@
 <h1>Editing Elector</h1>
 
-<%= render 'form', elector: @elector %>
-
+<div class="container left">
+  <%= render 'form', elector: @elector %>
 <%= link_to 'Show', @elector %> |
-<%= link_to 'Back', electors_path %>
+<%= link_to 'Back', electors_path, class:'btn waves-effect waves-light left' %>
+</div>
+

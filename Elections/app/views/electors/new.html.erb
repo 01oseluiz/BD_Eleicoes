@@ -1,5 +1,7 @@
 <h1>New Elector</h1>
 
-<%= render 'form', elector: @elector %>
+<div class="container left">
+  <%= render 'form', elector: @elector %>
+  <%= link_to 'Back', electors_path, class:'btn waves-effect waves-light left' %>
+</div>
 
-<%= link_to 'Back', electors_path %>

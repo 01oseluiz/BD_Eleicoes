@@ -4,7 +4,7 @@ class ElectorsController < ApplicationController
   # GET /electors
   # GET /electors.json
   def index
-    @electors = Elector.all
+    @electors = Elector.limit(100)
   end
 
   # GET /electors/1
@@ -62,13 +62,14 @@ class ElectorsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_elector
-      @elector = Elector.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_elector
+    @elector = Elector.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def elector_params
-      params.require(:elector).permit(:idElector, :idPerson, :idZone, :issueDate)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def elector_params
+    current_time = { issueDate: Time.zone.now }
+    current_time.merge(params.require(:elector).permit(:idElector, :idPerson, :idZone))
+  end
 end

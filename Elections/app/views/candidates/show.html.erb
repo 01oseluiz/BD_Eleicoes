@@ -4,7 +4,10 @@
   <strong>Idperson:</strong>
   <%= @candidate.person.nome  %>
 </p>
-
+<p>
+  <strong>candidateNumber:</strong>
+  <%= @candidate.candidateNumber  %>
+</p>
 <p>
   <strong>Idparty:</strong>
   <%= @candidate.party.partyAbbv %>
@@ -25,5 +28,5 @@
   <%= image_tag url_for(action: :show_image, id: @candidate.idCandidate),height: '150px', width: '150px' %>
 </p>
 
-<%= link_to 'Edit', edit_candidate_path(@candidate) %> |
-<%= link_to 'Back', candidates_path %>
+<%= link_to 'Edit', edit_candidate_path(@candidate), class:'btn waves-effect waves-light left' %>
+<%= link_to 'Back', candidates_path, class:'btn waves-effect waves-light left' %>

@@ -11,37 +11,43 @@
         </div>
     <% end %>
 
-    <div class="field">
-      <%= form.label :idCandidate %>
-      <%= form.text_field :idCandidate %>
+    <div class="input-field">
+      <%= form.label :CPF %>
+      <%= form.text_field :idPerson, placeholder: 'Digite seu CPF' %>
     </div>
 
-    <div class="field">
-      <%= form.label :idPerson %>
-      <%= collection_select(:candidate, :idPerson, Person.all, :idPerson, :nome, :prompt => true) %>
+
+    <div class="input-field">
+      <%= form.label :candidateNumber %>
+      <%= form.text_field :candidateNumber %>
     </div>
 
     <div class="field">
       <%= form.label :idParty %>
-      <%= collection_select(:candidate, :idParty, Party.all, :idParty, :partyAbbv, :prompt => true) %>
+      <%= collection_select(:candidate, :idParty, Party.order(:partyAbbv).limit(100), :idParty, :partyAbbv, :prompt => true) %>
     </div>
 
     <div class="field">
       <%= form.label :idCargo %>
-      <%= collection_select(:candidate, :idCargo, Cargo.all, :idCargo, :cargoName, :prompt => true) %>
+      <%= collection_select(:candidate, :idCargo, Cargo.limit(100), :idCargo, :cargoName, :prompt => true) %>
     </div>
 
     <div class="field">
       <%= form.label :idCity %>
-      <%= collection_select(:candidate, :idCity, City.all, :idCity, :cityName, :prompt => true) %>
+      <%= collection_select(:candidate, :idCity, City.order(:cityName).limit(100), :idCity, :cityName, :prompt => true) %>
     </div>
 
-    <div class="field">
-      <%= form.label :candidatePhoto %>
-      <%= form.file_field :candidatePhoto %>
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>candidatePhoto</span>
+        <%= form.file_field :candidatePhoto %>
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
     </div>
 
     <div class="actions">
-      <%= form.submit %>
+      <%= form.submit class:'btn waves-effect waves-light right' %>
     </div>
 <% end %>

@@ -1,0 +1,32 @@
+<h1>Votar</h1>
+<p>VOTO NULO AINDA NÃO FUNCIONAL</p>
+
+<% flash.each do |name, msg| %>
+    <% if name == 'error' %>
+        <script>M.toast({html: '<%= msg %>', classes: 'red'});</script>
+    <% elsif name == 'notice' %>
+        <script>M.toast({html: '<%= msg %>', classes: 'green'});</script>
+    <% end %>
+<% end %>
+
+<% if @elector.nil? %>
+    <div class="container left">
+
+      <%= form_with(local: true, url: 'check') do |form| %>
+          <div class="input-field">
+            <%= form.label :Titulo_de_Eleitor %>
+            <%= form.text_field :idElector, placeholder: 'Digite seu Titulo de Eleitor' %>
+          </div>
+
+          <div class="actions">
+            <%= form.submit 'Confirmar',class:'btn waves-effect waves-light right' %>
+          </div>
+      <% end %>
+    </div>
+<% end %>
+
+<% unless @elector.nil? %>
+    <div class="container left">
+      <%= render 'voto_form' %>
+    </div>
+<% end %>

@@ -4,7 +4,7 @@ class ZoneCandidatesController < ApplicationController
   # GET /zone_candidates
   # GET /zone_candidates.json
   def index
-    @zone_candidates = ZoneCandidate.all
+    @zone_candidates = ZoneCandidate.limit(100)
   end
 
   # GET /zone_candidates/1
@@ -62,13 +62,14 @@ class ZoneCandidatesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_zone_candidate
-      @zone_candidate = ZoneCandidate.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_zone_candidate
+    @zone_candidate = ZoneCandidate.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def zone_candidate_params
-      params.require(:zone_candidate).permit(:idCandidate, :idZone, :idRound, :voteTime, :voteIsManual)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def zone_candidate_params
+    current_time = { voteTime: Time.zone.now }
+    current_time.merge(params.require(:zone_candidate).permit(:idCandidate, :idZone, :idRound, :voteIsManual))
+  end
 end

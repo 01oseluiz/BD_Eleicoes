@@ -11,24 +11,24 @@
         </div>
     <% end %>
 
-    <div class="field">
+    <div class="input-field">
       <%= form.label :idPerson %>
       <%= form.text_field :idPerson %>
     </div>
 
-    <div class="field">
+    <div class="input-field">
       <%= form.label :personFirstName %>
       <%= form.text_field :personFirstName %>
     </div>
 
-    <div class="field">
+    <div class="input-field">
       <%= form.label :personLastName %>
       <%= form.text_field :personLastName %>
     </div>
 
-    <div class="field">
+    <div class="input-field">
       <%= form.label :personBirthDate %>
-      <%= form.date_select :personBirthDate %>
+      <%= form.text_field :personBirthDate, class: 'datepicker'%>
     </div>
 
     <div class="field">
@@ -38,15 +38,15 @@
 
     <div class="field">
       <%= form.label :idAddress %>
-      <%= collection_select(:person, :idAddress, Address.all, :idAddress, :addressName, :prompt => true)%>
+      <%= collection_select(:person, :idAddress, Address.order(:addressName).limit(100), :idAddress, :addressName, :prompt => true)%>
     </div>
 
     <div class="field">
       <%= form.label :idEducation %>
-      <%= collection_select(:person, :idEducation, Education.all, :idEducation, :educationName, :prompt => true) %>
+      <%= collection_select(:person, :idEducation, Education.limit(100), :idEducation, :educationName, :prompt => true) %>
     </div>
 
     <div class="actions">
-      <%= form.submit %>
+      <%= form.submit class:'btn waves-effect waves-light right' %>
     </div>
 <% end %>
