@@ -13,22 +13,17 @@
 
   <div class="field">
     <%= form.label :idCandidate %>
-    <%= collection_select(:zone_candidate, :idCandidate, Candidate.all, :idCandidate, :nome, :prompt => true) %>
+    <%= collection_select(:zone_candidate, :idCandidate, Candidate.limit(100), :idCandidate, :nome, :prompt => true) %>
   </div>
 
   <div class="field">
     <%= form.label :idZone %>
-    <%= collection_select(:zone_candidate, :idZone, Zone.all, :idZone, :nome, :prompt => true) %>
+    <%= collection_select(:zone_candidate, :idZone, Zone.order(:numZone).limit(100), :idZone, :nome, :prompt => true) %>
   </div>
 
   <div class="field">
     <%= form.label :idRound %>
-    <%= collection_select(:zone_candidate, :idRound, Round.all, :idRound, :idRound, :prompt => true) %>
-  </div>
-
-  <div class="field">
-    <%= form.label :voteTime %>
-    <%= form.datetime_select :voteTime %>
+    <%= collection_select(:zone_candidate, :idRound, Round.limit(100), :idRound, :idRound, :prompt => true) %>
   </div>
 
   <div class="field">
@@ -37,6 +32,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:'btn waves-effect waves-light right' %>
   </div>
 <% end %>

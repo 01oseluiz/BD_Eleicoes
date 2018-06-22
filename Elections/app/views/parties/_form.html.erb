@@ -1,42 +1,47 @@
 <%= form_with(model: party, local: true) do |form| %>
-  <% if party.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(party.errors.count, "error") %> prohibited this party from being saved:</h2>
+    <% if party.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(party.errors.count, "error") %> prohibited this party from being saved:</h2>
 
-      <ul>
-      <% party.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% party.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="input-field">
+      <%= form.label :CPF %>
+      <%= form.text_field :idPerson, placeholder: 'Digite seu CPF' %>
     </div>
-  <% end %>
 
-    <div class="field">
+    <div class="input-field">
       <%= form.label :idParty %>
       <%= form.text_field :idParty %>
     </div>
 
-  <div class="field">
-    <%= form.label :partyName %>
-    <%= form.text_field :partyName %>
-  </div>
+    <div class="input-field">
+      <%= form.label :partyName %>
+      <%= form.text_field :partyName %>
+    </div>
 
-  <div class="field">
-    <%= form.label :partyAbbv %>
-    <%= form.text_field :partyAbbv %>
-  </div>
+    <div class="input-field">
+      <%= form.label :partyAbbv %>
+      <%= form.text_field :partyAbbv %>
+    </div>
 
-  <div class="field">
-    <%= form.label :idPerson %>
-    <%= collection_select(:parties, :idPerson, Person.all, :idPerson, :nome, :prompt => true) %>
-  </div>
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>candidatePhoto</span>
+        <%= form.file_field :partyLogo %>
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :partyLogo %>
-    <%= form.text_field :partyLogo %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div class="actions">
+      <%= form.submit class:'btn waves-effect waves-light right' %>
+    </div>
 <% end %>

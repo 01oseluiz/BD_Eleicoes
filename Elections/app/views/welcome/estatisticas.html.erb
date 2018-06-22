@@ -1,0 +1,38 @@
+<h1>Estatisticas</h1>
+
+<div class="row">
+  <div class="col l6 pull-l2">
+    <%= button_to 'Candidatos por Escolaridade', cand_inst_sex_path, method: :get, class: 'btn waves-effect waves-light left' %>
+    <%= button_to 'Candidatos por Partido', cand_per_party_path, method: :get, class: 'btn waves-effect waves-light left' %>
+    <%= button_to 'Candidatos por Região', cand_per_region_path, method: :get, class: 'btn waves-effect waves-light left' %>
+    <%= button_to 'Candidatos por Estado', cand_per_state_path, method: :get, class: 'btn waves-effect waves-light left' %>
+    <%= button_to 'Participação Global', global_participation_path, method: :get, class: 'btn waves-effect waves-light left' %>
+    <%= button_to 'Participação por Região', participation_per_region_path, method: :get, class: 'btn waves-effect waves-light left' %>
+    <%= button_to 'Participação por Estado', participation_per_state_path, method: :get, class: 'btn waves-effect waves-light left' %>
+    <%= button_to 'Votos por Partido', votes_per_party_path, method: :get, class: 'btn waves-effect waves-light left' %>
+  </div>
+
+  <% unless @est.nil? %>
+      <div class="col l6 pull-l3">
+        <table>
+          <thead>
+          <tr>
+            <% @est.columns.each do |column|%>
+                <th><%= column %></th>
+            <% end %>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @est.rows.each do |row| %>
+              <tr>
+                <% row.each do |column|%>
+                    <td><%= column %></td>
+                <% end %>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+  <% end %>
+</div>

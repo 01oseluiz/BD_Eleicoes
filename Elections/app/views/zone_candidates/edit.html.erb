@@ -1,6 +1,8 @@
 <h1>Editing Zone Candidate</h1>
 
-<%= render 'form', zone_candidate: @zone_candidate %>
-
+<div class="container left">
+  <%= render 'form', zone_candidate: @zone_candidate %>
 <%= link_to 'Show', @zone_candidate %> |
-<%= link_to 'Back', zone_candidates_path %>
+<%= link_to 'Back', zone_candidates_path, class:'btn waves-effect waves-light left' %>
+</div>
+

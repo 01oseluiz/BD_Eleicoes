@@ -1,16 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Elections</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Elections</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-  <center><h1><a href="http://0.0.0.0:3000">ELEIÇÕES 2018</a></h1></center>
-    <%= yield %>
-  </body>
+<body>
+<div class="row">
+  <div class="col l4">
+    <ul id="slide-out" class="sidenav sidenav-fixed">
+      <li><div class="user-view" style="height: 200px">
+        <div class="background">
+          <img class="responsive-img" src="https://images.freecreatives.com/wp-content/uploads/2016/03/White-Abstract-Wallpaper-1.jpg">
+        </div>
+        <a href=<%= index_path %>><img class="responsive-img" src="http://static.wixstatic.com/media/a5b5ec_c9942a90bd0a4ee5a32d29f0e3021572~mv2.png/v1/fill/w_655,h_303,al_c,lg_1/a5b5ec_c9942a90bd0a4ee5a32d29f0e3021572~mv2.png"></a>
+      </div></li>
+      <li><a href=<%= votar_path %>>Votar</a></li>
+      <div class="divider"></div>
+      <li><a href=<%= new_person_path %>>Cadastrar</a></li>
+      <li><a href=<%= new_elector_path %>>Tirar Titulo</a></li>
+      <div class="divider"></div>
+      <li><a href=<%= new_candidate_path %>>Candidatar-se</a></li>
+      <li><a href=<%= new_party_path %>>Criar Partido</a></li>
+      <div class="divider"></div>
+      <li><a href=<%= estatisticas_path %>>Estátisticas</a></li>
+      <li><a href=<%= resultados_path %>>Resultados</a></li>
+    </ul>
+    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+  </div>
+
+  <div class="col l8">
+      <%= yield %>
+  </div>
+</div>
+</body>
 </html>

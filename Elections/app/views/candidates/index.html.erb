@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Idperson</th>
+      <th>candidateNumber</th>
       <th>Idparty</th>
       <th>Idcargo</th>
       <th>Idcity</th>
@@ -17,6 +18,7 @@
     <% @candidates.each do |candidate| %>
       <tr>
         <td><%= candidate.person.nome %></td>
+        <td><%= candidate.candidateNumber %></td>
         <td><%= candidate.party.partyAbbv %></td>
         <td><%= candidate.cargo.cargoName %></td>
         <td><%= candidate.city.cityName %></td>

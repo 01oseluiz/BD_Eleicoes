@@ -1,0 +1,54 @@
+<h1>Resultados</h1>
+
+<% if @res.nil? %>
+    <div class="container left">
+      <%= form_with(local: true) do |form| %>
+          <div class="field">
+            <%= form.label :Cargo %>
+            <%= collection_select(:res, :Cargo, Cargo.all, :idCargo, :cargoName, :prompt => true) %>
+          </div>
+          <div class="field">
+            <%= form.label :Estado %>
+            <%= collection_select(:res, :Estado, State.all, :idState, :stateAbbv, :prompt => true) %>
+          </div>
+          <div class="field">
+            <%= form.label :Round %>
+            <%= collection_select(:res, :Round, Round.all, :idRound, :idRound, :prompt => true) %>
+          </div>
+          <div class="actions">
+            <%= form.submit 'Confirmar',class:'btn waves-effect waves-light right' %>
+          </div>
+      <% end %>
+    </div>
+<% end %>
+
+<% unless @res.nil? %>
+    <div class="left">
+      <table>
+        <thead>
+        <tr>
+          <th><%= @res.columns[0] %></th>
+          <th><%= @res.columns[1] %></th>
+          <th><%= @res.columns[2] %></th>
+          <th><%= @res.columns[3] %></th>
+          <th><%= @res.columns[4] %></th>
+          <th><%= @res.columns[5] %></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @res.rows.each do |row| %>
+            <tr>
+              <td><%= row[0] %></td>
+              <td><%= row[1] %></td>
+              <td><%= row[2] %></td>
+              <td><%= row[3] %></td>
+              <td><%= row[4] %></td>
+              <td><%= row[5] %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <%= link_to 'Back', resultados_path, class:'btn waves-effect waves-light left' %>
+    </div>
+<% end %>

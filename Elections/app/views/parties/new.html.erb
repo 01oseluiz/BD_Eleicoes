@@ -1,5 +1,7 @@
 <h1>New Party</h1>
 
-<%= render 'form', party: @party %>
+<div class="container left">
+  <%= render 'form', party: @party %>
+<%= link_to 'Back', parties_path, class:'btn waves-effect waves-light left' %>
+</div>
 
-<%= link_to 'Back', parties_path %>

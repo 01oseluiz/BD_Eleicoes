@@ -18,7 +18,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.index ["idCity"], name: "Address_City_idx"
   end
 
-  create_table "candidates", primary_key: "idCandidate", id: :bigint, default: nil, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "candidates", primary_key: "idCandidate", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "candidateNumber", null: false
     t.bigint "idPerson", null: false
     t.bigint "idParty", null: false
     t.bigint "idCargo", null: false
@@ -115,7 +116,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.bigint "idRound", null: false
     t.timestamp "voteTime", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.integer "voteIsManual", limit: 1, default: 0, null: false
-    t.index ["idCandidate"], name: "Vote_Candidate"
+    t.index ["idCandidate"], name: "Vote_Candidate_idx"
     t.index ["idRound"], name: "Vote_Round_idx"
     t.index ["idZone"], name: "Vote_Zone_idx"
   end

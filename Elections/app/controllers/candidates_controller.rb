@@ -4,7 +4,7 @@ class CandidatesController < ApplicationController
   # GET /candidates
   # GET /candidates.json
   def index
-    @candidates = Candidate.all
+    @candidates = Candidate.limit(100)
   end
 
   # GET /candidates/1
@@ -25,6 +25,10 @@ class CandidatesController < ApplicationController
   # POST /candidates.json
   def create
     @candidate = Candidate.new(candidate_params)
+
+    unless check_elector
+      return
+    end
 
     respond_to do |format|
       if @candidate.save
@@ -78,8 +82,25 @@ class CandidatesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def candidate_params
-    img = {:candidatePhoto => params[:candidate][:candidatePhoto].read}
-    img.merge(params.require(:candidate).permit(:idCandidate, :idPerson, :idParty, :idCargo, :idCity))
+    if params[:candidate][:candidatePhoto].nil? then
+      img = {candidatePhoto: ''}
+    else
+      img = {candidatePhoto: params[:candidate][:candidatePhoto].read}
+    end
+    img.merge(params.require(:candidate).permit(:candidateNumber, :idPerson, :idParty, :idCargo, :idCity))
+  end
+
+  def check_elector
+    ret = true
+    if Elector.find_by(idPerson: params[:candidate][:idPerson]).nil?
+      @candidate.errors.add(:base, "Elector must exist for this CPF")
+      respond_to do |format|
+        format.html { render :new }
+        format.json { render json: @candidate.errors, status: :unprocessable_entity }
+      end
+      ret = false
+    end
+    ret
   end
 
 end
