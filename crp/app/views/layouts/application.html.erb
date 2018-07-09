@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Crp</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+
+<!-- GOV navbar -->
+<div class="row nav-gov" style="margin-bottom: 0;">
+
+</div>
+
+<!-- Navbar -->
+<div class="navbar-container z-depth-1">
+  <div class="row menu-container" style="margin-bottom: 0;">
+    <div class="col s12 l7 logo">
+      <a href="#!"><img height="100%" src=<%= image_url('logo.jpg') %>></a>
+    </div>
+    <div class="col s12 l5 right-menu ">
+      <div class="accessibility-medias right">
+        <a href="#"><i class="material-icons small black-text">format_size</i></a>
+        <a href="#"><i class="material-icons small black-text">format_size</i></a>
+        <a href="#"><i class="material-icons small black-text">format_size</i></a>
+        <a href="#"><i class="material-icons small black-text">format_size</i></a>
+      </div>
+      <div class="col s12 search-nav">
+        <nav>
+          <div class="nav-wrapper">
+            <form>
+              <div class="input-field">
+                <input id="search" type="search" required>
+                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                <i class="material-icons">close</i>
+              </div>
+            </form>
+          </div>
+        </nav>
+      </div>
+      <div class="social-medias right">
+        <a href="#"><i class="material-icons small white-text">description</i></a>
+        <a href="#"><i class="material-icons small white-text">description</i></a>
+        <a href="#"><i class="material-icons small white-text">description</i></a>
+        <a href="#"><i class="material-icons small white-text">description</i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="menu-nav">
+    <nav>
+      <div class="menu">
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="sass.html">Link1</a></li>
+          <li><a href="badges.html">Link2</a></li>
+          <!-- Dropdown Trigger -->
+          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown1<i class="material-icons right ">arrow_drop_down</i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="#!">one</a></li>
+  <li><a href="#!">two</a></li>
+  <li class="divider"></li>
+  <li><a href="#!">three</a></li>
+</ul>
+
+<!-- SideNav Structure -->
+<ul class="sidenav" id="mobile-demo">
+  <li><a href="sass.html">Sass</a></li>
+  <li><a href="badges.html">Components</a></li>
+  <li><a href="collapsible.html">Javascript</a></li>
+  <li><a href="mobile.html">Mobile</a></li>
+</ul>
+
+<!-- Pages Structure -->
+<br/>
+<div class="container" style="min-height: 100vh">
+  <%= yield %>
+</div>
+
+<div class="conselhos z-depth-3">
+  <div class="container row">
+    <h6 class="left"><b>Rede de Conselhos de Psicologia</b></h6>
+    <div class="right" style="background: rgba(255,255,255,0.1); padding-left: 5px;">
+      <ul>
+        <li><a class="dropdown-trigger white-text" href="#!" data-target="conselhos">Selecione o Conselho que deseja acessar:<i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Dropdown Conselhos Structure -->
+<ul id="conselhos" class="dropdown-content">
+  <li><a href="#!">one</a></li>
+  <li><a href="#!">two</a></li>
+  <li><a href="#!">three</a></li>
+</ul>
+
+</body>
+
+<footer class="page-footer">
+
+  <div class="footer row">
+    <div class="col l2 push-l1 s12">
+      <div class="col s12"><h6><b>Title</b></h6></div>
+      <div class="col s12">
+        <ul>
+          <li><a href="#">link1</a></li>
+          <li><a href="#">link2</a></li>
+          <li><a href="#">link3</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col l2 push-l1 s12">
+      <div class="col s12"><h6><b>Title</b></h6></div>
+      <div class="col s12">
+        <ul>
+          <li><a href="#">link1</a></li>
+          <li><a href="#">link2</a></li>
+          <li><a href="#">link3</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col l2 push-l1 s12">
+      <div class="col s12"><h6><b>Title</b></h6></div>
+      <div class="col s12">
+        <ul>
+          <li><a href="#">link1</a></li>
+          <li><a href="#">link2</a></li>
+          <li><a href="#">link3</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col l2 push-l1 s12">
+      <div class="col s12"><h6><b>Title</b></h6></div>
+      <div class="col s12">
+        <ul>
+          <li><a href="#">link1</a></li>
+          <li><a href="#">link2</a></li>
+          <li><a href="#">link3</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-last-container col l3 push-l1 s12">
+      <div class="footer-logo">
+        <a href="#!"><img height="100%" src=<%= image_url('logo.jpg') %>></a>
+      </div>
+      <p class="valign-wrapper"><i class="material-icons">local_phone</i>(61) 3030-1010</p>
+      <p class="valign-wrapper"><i class="material-icons">mail</i>crp-01@crp-01.org.br</p>
+      <p class="valign-wrapper"><i class="material-icons">location_city</i>CEP 70719-900</p>
+      <p class="valign-wrapper">SRTVN Quadra 701 - Ed. Brasília Rádio Center - Ala A - 4o andar - Sala 4024
+        Asa Norte - Brasília-DF</p>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      © 2018 Copyright
+      <a class="grey-text text-lighten-4" href="http://struct.unb.br/">Struct</a>
+    </div>
+  </div>
+</footer>
+
+</html>

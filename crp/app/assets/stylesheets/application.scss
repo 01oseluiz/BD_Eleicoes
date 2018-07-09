@@ -1,0 +1,145 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+@import "materialize/components/color-variables";
+@import "materialize";
+
+$primary-color: color("blue", "lighten-2") !default;
+$secondary-color: color("green", "base") !default;
+$base-color-desert-blue: #00AEC7;
+$base-color-blue-dark: #2D4163;
+$base-color-gray: #808080;
+
+//---------------BASE COLOR CLASSES-------------------
+.base-desert-blue{background: $base-color-desert-blue !important;}
+.base-desert-blue-text{color: $base-color-desert-blue !important;}
+.base-blue-dark{background: $base-color-blue-dark !important;}
+.base-blue-dark-text{color: $base-color-blue-dark !important;}
+.base-gray{background: $base-color-gray !important;}
+.base-gray-text{color: $base-color-gray !important;}
+
+
+//---------Navbar-GOV
+.nav-gov{
+  width: 100%;
+  height: 35px;
+  background: #eeeeee;
+}
+
+//------------------------Navbar
+.navbar-container{
+  background: $base-color-desert-blue;
+}
+
+//---------Logo, Search, Medias...
+.menu-container{
+  padding: 20px;
+}
+
+.logo, .right-menu{
+  height: 150px;
+  width: auto;
+}
+
+@media only screen and (max-width: 992px) {
+  .logo, .right-menu{
+    text-align: center;
+  }
+}
+
+.search-nav nav{
+  height: 50px;
+  line-height: 50px;
+  background: #eeeeee;
+}
+
+.search-nav nav i.material-icons {
+  height: 50px;
+  line-height: 50px;
+  color: black;
+}
+
+.accessibility-medias{
+  margin-right: 11px;
+  margin-bottom: -2px;
+}
+
+.accessibility-medias i{
+  background: rgba(#eee,0.7);
+  padding: 3px;
+  margin-left: -3px;
+}
+
+.accessibility-medias i:hover{
+  background: rgba(#eee,0.9);
+}
+
+.social-medias{
+  margin: 20px;
+}
+
+//--------- Menu navbar
+.menu-nav nav{
+  box-shadow: none;
+  height: 40px;
+  line-height: 40px;
+  background: transparent;
+}
+
+.menu-nav li{
+  border-left: 1px solid white;
+}
+
+.menu-nav nav i.material-icons {
+  height: 40px;
+  line-height: 40px;
+}
+
+
+//-----------Conselhos
+.conselhos{
+  background: $base-color-blue-dark;
+  color:white;
+  margin-bottom: -20px;
+}
+
+//------------Footer
+.page-footer{
+  background-color: $base-color-desert-blue;
+}
+
+.footer{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.footer *{
+  color: white;
+}
+
+.footer-logo{
+  height: 100px;
+  text-align: center;
+}
+
+.footer-last-container p{
+  margin-bottom: -15px;
+}
+
+.footer-last-container i{
+  margin-right: 5px;
+}

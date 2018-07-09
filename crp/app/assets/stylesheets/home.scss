@@ -1,0 +1,143 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "application";
+
+//----------------EVENTS ROW
+.events{
+  padding-left: 0 !important;
+  height: 50vh;
+}
+
+.events-slider{
+  width: 60%;
+  height: 50vh;
+}
+
+.events-description{
+  color: black;
+  width: 40%;
+  padding: 20px;
+}
+
+.events-description h5{
+  font-weight: bold;
+  text-align: center;
+}
+
+.events-description p{
+  text-align: justify;
+}
+
+.mural{
+  padding: 0 0 0 30px !important;
+}
+
+.mural .collection{
+  margin-top: 0;
+}
+
+//------------------NEWS ROW
+.news{
+  padding-right: 0 !important;
+  height: 50vh;
+}
+
+.news-slider{
+  width: 60%;
+  height: 50vh;
+}
+
+.news-description{
+  color: black;
+  width: 40%;
+  padding: 20px;
+}
+
+.news-description h5{
+  font-weight: bold;
+  text-align: center;
+}
+
+.news-description p{
+  text-align: justify;
+}
+
+.news-collection{
+  padding: 0 10px 0 0 !important;
+  height: 50vh;
+}
+
+.news-collection > div{
+  height: 100%;
+}
+
+.news-collection .col{
+  height: 50%;
+  padding: 5px !important;
+}
+
+.news-collection .col div{
+  height: 100%;
+  border: 2px solid #e0e0e0;
+  position: relative;
+}
+
+.news-collection h6{
+  background: $base-color-desert-blue;
+  margin: 0;
+  height: 40px;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+.news-collection p{
+  margin: 0;
+  padding: 10px;
+  height: calc(100% - 40px);
+  word-wrap: break-word;
+  text-wrap: normal;
+}
+
+.news-collection a{
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+
+//--------------------FAST ACESS ROW
+.fast-acess{
+  height: 140px !important;
+  margin-top: 10px;
+}
+
+.fast-acess div{
+  height: 140px !important;
+  padding: 5px !important;
+  float: left;
+  text-align: center;
+}
+
+.fast-acess a{
+  height: 100%;
+  width: 100%;
+  padding: 0 10px 10px 10px;
+  border-radius: 2px;
+  position: relative;
+  color: white;
+}
+
+.fast-acess p{
+  text-align: left;
+  font-weight: bold;
+  word-wrap: break-word;
+  position: absolute;
+  bottom: -15px;
+}
+
+.fast-acess img{
+  height: 90px !important;
+  width: 90px !important;
+}
